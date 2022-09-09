@@ -1,0 +1,11 @@
+.container {
+  background-image: url("/src/assets/images/front.jpg");
+}
+
+.textContainer {
+}
+
+.company {
+  font-family: var(--lb-font);
+  color: var(--lb-color);
+}

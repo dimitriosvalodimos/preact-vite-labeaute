@@ -1,5 +1,24 @@
+@font-face {
+  font-family: "CorpoA";
+  src: url("/src/assets/font/CorpoA.ttf");
+}
+
+:root {
+  --transition: 0.15s all ease;
+  --bg: #fff;
+  --fg: #222;
+  --fg-light: #555;
+  --bg-hover: rgba(0, 0, 0, 0.05);
+  --bg-hover-border: rgba(0, 0, 0, 0.01);
+  --bg-active: rgba(0, 0, 0, 0.1);
+  --lb-color: #32a194;
+  --lb-font: "CorpoA";
+  --shadow: 0px 0px 16px rgba(0, 0, 0, 0.06);
+  --x-margin: 1.5rem;
+}
+
 * {
   padding: 0;
   margin: auto;
-  box-sizing: border-box
+  box-sizing: border-box;
 }

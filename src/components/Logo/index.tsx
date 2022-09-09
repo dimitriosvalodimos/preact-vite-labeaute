@@ -1,14 +1,33 @@
-import { useMediaQuery } from "../../utils";
-// import { ReactComponent as ShortLogo } from "../../assets/logo/short.svg";
-// import { ReactComponent as FullLogo } from "../../assets/logo/full.svg";
-
-// export const Logo = () => {
-//   const isDesktop = useMediaQuery("(min-width: 500px)");
-//   return <>{isDesktop ? <FullLogo /> : <ShortLogo />}</>;
-// };
+import { AnimatePresence, motion } from "framer-motion";
+import s from "./Logo.module.css";
+import { desktopMediaQuery, useMediaQuery } from "../../utils";
 
 export const Logo = () => {
-  const isDesktop = useMediaQuery("(min-width: 500px)");
+  const isDesktop = useMediaQuery(desktopMediaQuery);
 
-  return <>{isDesktop ? <p>LA BEAUTÉ</p> : <p>LB</p>}</>;
+  return (
+    <AnimatePresence mode="wait">
+      {isDesktop && (
+        <motion.p
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0, transition: { duration: 1 } }}
+          exit={{ opacity: 0, x: -100 }}
+          className={s.logo}
+        >
+          LA BEAUTÉ
+        </motion.p>
+      )}
+
+      {!isDesktop && (
+        <motion.p
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0, transition: { duration: 1 } }}
+          exit={{ opacity: 0, x: -100 }}
+          className={s.logo}
+        >
+          LB
+        </motion.p>
+      )}
+    </AnimatePresence>
+  );
 };
