@@ -1,4 +1,5 @@
 @font-face {
+  font-display: fallback;
   font-family: "CorpoA";
   src: url("/src/assets/font/CorpoA.ttf");
 }

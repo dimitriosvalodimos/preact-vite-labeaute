@@ -2,6 +2,7 @@ import { NavItem, TNavItem } from "../NavbarItem";
 import s from "./Navbar.module.css";
 import { Logo } from "../Logo";
 import { AnimatePresence, motion } from "framer-motion";
+import { useNavLinkManagerStore } from "../../utils";
 
 export type TNavbar = {
   items: TNavItem[];

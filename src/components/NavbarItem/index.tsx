@@ -14,7 +14,12 @@ export type TNavItem = {
 export const NavItem = ({ text, link, icon, animation }: TNavItem) => {
   const isDesktop = useMediaQuery(desktopMediaQuery);
   return (
-    <Link className={s.container} to={link} onClick={() => handleScorll(link)}>
+    <Link
+      id={`link-${link}`}
+      className={s.container}
+      to={link}
+      onClick={() => handleScorll(link)}
+    >
       <motion.div
         variants={animation}
         className={isDesktop ? s.item : s.onlyIcon}
