@@ -1,18 +1,15 @@
-import "./App.module.css";
+import { lazy, Suspense, useEffect } from "react";
+import debounce from "just-debounce-it";
 import {
   RiContactsLine,
   RiGroupLine,
   RiShoppingBag3Line,
   RiStoreLine,
 } from "react-icons/ri";
-import { Navbar } from "./components/Navbar";
 import { IconContext } from "react-icons";
-import {
-  desktopMediaQuery,
-  useMediaQuery,
-  useNavLinkManagerStore,
-} from "./utils";
-import { lazy, Suspense, useEffect } from "react";
+import { Navbar } from "./components/Navbar";
+import { desktopMediaQuery, useMediaQuery } from "./utils";
+import "./App.module.css";
 
 const navbarItems = [
   { icon: <RiStoreLine />, link: "/", text: "Home" },
@@ -34,27 +31,15 @@ const navbarItems = [
 ];
 
 export default function App() {
-  const {
-    setSectionIds,
-    setLinkToIndex,
-    setSectionElements,
-    setNavLinkElements,
-  } = useNavLinkManagerStore((state) => ({
-    setSectionIds: state.setSectionIds,
-    setLinkToIndex: state.setLinkToIndex,
-    setSectionElements: state.setSectionElements,
-    setNavLinkElements: state.setNavLinkElements,
-  }));
+  const handleGlobalScroll = debounce(() => {}, 500);
+
+  const isDesktop = useMediaQuery(desktopMediaQuery);
+  const Hero = lazy(() => import("./components/Hero"));
 
   useEffect(() => {
-    setSectionIds(navbarItems.map((i) => i.link));
-    setLinkToIndex();
-    setSectionElements();
-    setNavLinkElements();
+    window.addEventListener("scroll", handleGlobalScroll);
+    return () => window.removeEventListener("scroll", handleGlobalScroll);
   }, []);
-  const isDesktop = useMediaQuery(desktopMediaQuery);
-
-  const Hero = lazy(() => import("./components/Hero/index"));
 
   return (
     <IconContext.Provider value={{ size: isDesktop ? "16" : "24" }}>

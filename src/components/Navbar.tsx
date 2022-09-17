@@ -1,12 +1,29 @@
-import { NavItem, TNavItem } from "../NavbarItem";
-import s from "./Navbar.module.css";
-import { Logo } from "../Logo";
+import styled from "styled-components";
 import { AnimatePresence, motion } from "framer-motion";
-import { useNavLinkManagerStore } from "../../utils";
+import { Logo } from "./Logo";
+import { NavItem, TNavItem } from "./NavbarItem";
 
 export type TNavbar = {
   items: TNavItem[];
 };
+
+const Nav = styled(motion.nav)`
+  position: sticky;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  box-shadow: var(--shadow);
+  background-color: var(--bg);
+`;
+
+const NavList = styled(motion.ul)`
+  height: 100%;
+  display: flex;
+  margin: 0 var(--x2-margin);
+`;
 
 export const Navbar = ({ items }: TNavbar) => {
   const container = {
@@ -24,16 +41,14 @@ export const Navbar = ({ items }: TNavbar) => {
 
   return (
     <AnimatePresence>
-      <motion.nav
-        variants={container}
-        initial="initial"
-        animate="animate"
-        className={s.navbar}
-      >
-        <Logo />
-        <motion.ul variants={container} className={s.navItems}>
-          {items.map((item) => (
+      <Nav variants={container} initial="initial" animate="animate">
+        <div>
+          <Logo />
+        </div>
+        <NavList variants={container}>
+          {items.map((item, i) => (
             <NavItem
+              index={i}
               animation={child}
               key={`${item.text}-${item.link}`}
               text={item.text}
@@ -41,8 +56,8 @@ export const Navbar = ({ items }: TNavbar) => {
               link={item.link}
             />
           ))}
-        </motion.ul>
-      </motion.nav>
+        </NavList>
+      </Nav>
     </AnimatePresence>
   );
 };

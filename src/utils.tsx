@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import create from "zustand";
 
-export const hoverRotation = 10;
-export const animationTiming = 150;
 export const navbarHeight = 64;
 export const desktopMediaQuery = "(min-width: 500px)";
 
@@ -31,63 +29,23 @@ export const useMediaQuery = (query: string) => {
   return matches;
 };
 
-type NavLinkManager = {
-  sectionIds: string[];
-  linkToIndex: { [link: string]: number };
-  sectionElements: { [id: string]: HTMLElement };
-  navLinkElements: { [id: string]: HTMLElement };
-  setSectionIds: (ids: string[]) => void;
-  setSectionElements: () => void;
-  setNavLinkElements: () => void;
-  setLinkToIndex: () => void;
+type ActiveNavbarItem = {
+  active: boolean[];
+  setActive: (index: number) => void;
 };
 
-export const useNavLinkManagerStore = create<NavLinkManager>((set) => ({
-  sectionIds: [],
-  sectionElements: {},
-  navLinkElements: {},
-  linkToIndex: {},
-  setLinkToIndex: () =>
-    set((state) => {
-      const res = state.sectionIds.reduce((acc, cur, idx) => {
-        acc[cur] = idx;
-        return acc;
-      }, {} as { [link: string]: number });
-      return { ...state, linkToIndex: res };
-    }),
-  setSectionIds: (ids) => set((state) => ({ ...state, sectionIds: ids })),
-  setSectionElements: () =>
-    set((state) => {
-      const elements = state.sectionIds
-        .map((id) => ({ id, element: document.getElementById(id)! }))
-        .reduce((acc, cur) => {
-          acc[cur.id] = cur.element;
-          return acc;
-        }, {} as { [id: string]: HTMLElement });
-      return {
-        ...state,
-        sectionElements: elements,
-      };
-    }),
-  setNavLinkElements: () =>
-    set((state) => {
-      const elements = state.sectionIds
-        .map((id) => ({
-          id,
-          element: document.getElementById(`link-${id}`)!,
-        }))
-        .reduce((acc, cur) => {
-          acc[cur.id] = cur.element;
-          return acc;
-        }, {} as { [id: string]: HTMLElement });
-      return {
-        ...state,
-        navLinkElements: elements,
-      };
-    }),
+export const useActiveNavbarItemStore = create<ActiveNavbarItem>((set) => ({
+  active: [true, false, false, false],
+  setActive: (index) =>
+    set((state) => ({
+      ...state,
+      active: Array(state.active.length)
+        .fill(false)
+        .map((_, idx) => index === idx),
+    })),
 }));
 
-export const handleScorll = (id: string) => {
+export const handleScroll = (id: string) => {
   if (id === "/") {
     window.scrollTo({ behavior: "smooth", top: 0 });
     return;

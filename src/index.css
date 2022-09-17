@@ -15,7 +15,11 @@
   --lb-color: #32a194;
   --lb-font: "CorpoA";
   --shadow: 0px 0px 16px rgba(0, 0, 0, 0.06);
-  --x-margin: 1.5rem;
+  --x-margin: 8px;
+  --x2-margin: calc(var(--x-margin) * 2);
+  --x2-margin: calc(var(--x-margin) * 2);
+  --x4-margin: calc(var(--x-margin) * 4);
+  --radius: 6px;
 }
 
 * {
