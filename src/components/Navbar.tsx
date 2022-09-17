@@ -2,18 +2,20 @@ import styled from "styled-components";
 import { AnimatePresence, motion } from "framer-motion";
 import { Logo } from "./Logo";
 import { NavItem, TNavItem } from "./NavbarItem";
+import { desktopMediaQuery, useMediaQuery } from "../utils";
 
 export type TNavbar = {
   items: TNavItem[];
 };
 
-const Nav = styled(motion.nav)`
+const Nav = styled(motion.nav)<{ isDesktop: boolean }>`
   position: sticky;
   top: 0;
   left: 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: ${({ isDesktop }) =>
+    isDesktop ? "center" : "space-between"};
   height: 64px;
   box-shadow: var(--shadow);
   background-color: var(--bg);
@@ -26,6 +28,8 @@ const NavList = styled(motion.ul)`
 `;
 
 export const Navbar = ({ items }: TNavbar) => {
+  const isDektop = useMediaQuery(desktopMediaQuery);
+
   const container = {
     initial: { opacity: 0 },
     animate: {
@@ -41,10 +45,13 @@ export const Navbar = ({ items }: TNavbar) => {
 
   return (
     <AnimatePresence>
-      <Nav variants={container} initial="initial" animate="animate">
-        <div>
-          <Logo />
-        </div>
+      <Nav
+        isDesktop={isDektop}
+        variants={container}
+        initial="initial"
+        animate="animate"
+      >
+        <Logo />
         <NavList variants={container}>
           {items.map((item, i) => (
             <NavItem

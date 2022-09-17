@@ -1,5 +1,3 @@
-import { lazy, Suspense, useEffect } from "react";
-import debounce from "just-debounce-it";
 import {
   RiContactsLine,
   RiGroupLine,
@@ -10,6 +8,8 @@ import { IconContext } from "react-icons";
 import { Navbar } from "./components/Navbar";
 import { desktopMediaQuery, useMediaQuery } from "./utils";
 import "./App.module.css";
+import Hero from "./components/Hero";
+import { Products } from "./components/Products";
 
 const navbarItems = [
   { icon: <RiStoreLine />, link: "/", text: "Home" },
@@ -31,43 +31,25 @@ const navbarItems = [
 ];
 
 export default function App() {
-  const handleGlobalScroll = debounce(() => {}, 500);
-
   const isDesktop = useMediaQuery(desktopMediaQuery);
-  const Hero = lazy(() => import("./components/Hero"));
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleGlobalScroll);
-    return () => window.removeEventListener("scroll", handleGlobalScroll);
-  }, []);
 
   return (
     <IconContext.Provider value={{ size: isDesktop ? "16" : "24" }}>
       <div className="App">
         <Navbar items={navbarItems} />
-        <Suspense>
-          <Hero />
-          <div style={{ height: "200vh" }}></div>
-          <div
-            id="produkte"
-            style={{
-              height: "100vh",
-              backgroundColor: "red",
-            }}
-          >
-            <h1>Hi</h1>
-          </div>
-          <div style={{ height: "200vh" }}></div>
-          <div
-            id="partner"
-            style={{ height: "100vh", backgroundColor: "blue" }}
-          ></div>
-          <div style={{ height: "200vh" }}></div>
-          <div
-            id="kontakt"
-            style={{ height: "100vh", backgroundColor: "green" }}
-          ></div>
-        </Suspense>
+        <Hero />
+        <div style={{ height: "200vh" }}></div>
+        <Products />
+        <div style={{ height: "200vh" }}></div>
+        <div
+          id="partner"
+          style={{ height: "100vh", backgroundColor: "blue" }}
+        ></div>
+        <div style={{ height: "200vh" }}></div>
+        <div
+          id="kontakt"
+          style={{ height: "100vh", backgroundColor: "green" }}
+        ></div>
       </div>
     </IconContext.Provider>
   );

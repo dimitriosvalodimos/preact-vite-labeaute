@@ -1,20 +1,23 @@
 import styled from "styled-components";
 import img from "../assets/images/front_compressed_large.jpeg";
+import { desktopMediaQuery, useMediaQuery } from "../utils";
 
-const Wrapper = styled.div`
-  width: 100%;
-  background-image: url(${img});
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 0.5rem;
+const Wrapper = styled.div<{ isDesktop: boolean }>`
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: ${({ isDesktop }) => (isDesktop ? "row" : "column")};
 `;
 
-const Text = styled.div`
+const Image = styled.img<{ isDesktop: boolean }>`
+  width: ${({ isDesktop }) => (isDesktop ? "50vw" : "100%")};
+`;
+
+const Text = styled.div<{ isDesktop: boolean }>`
   padding: 0.5rem;
   text-align: center;
   background-color: white;
-  width: 80%;
   border-radius: var(--radius);
+  width: ${({ isDesktop }) => (isDesktop ? "40%" : "80%")};
 `;
 
 const Company = styled.h2`
@@ -28,9 +31,10 @@ const Rule = styled.hr``;
 const Pitch = styled.p``;
 
 const Hero = () => {
+  const isDesktop = useMediaQuery(desktopMediaQuery);
   return (
-    <Wrapper>
-      <Text>
+    <Wrapper isDesktop={isDesktop} id="hero">
+      <Text isDesktop={isDesktop}>
         <Company>LA BEAUTÉ</Company>
         <Slogan>Kosmetik und Wellness</Slogan>
         <Owners>Katrin Bienk · Michaela Kaminski</Owners>
@@ -42,6 +46,7 @@ const Hero = () => {
           die Bedürfnisse Ihrer Haut abgestimmt.
         </Pitch>
       </Text>
+      <Image src={img} isDesktop={isDesktop} />
     </Wrapper>
   );
 };
