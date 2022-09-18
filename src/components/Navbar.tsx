@@ -15,7 +15,7 @@ const Nav = styled(motion.nav)<{ isDesktop: boolean }>`
   display: flex;
   align-items: center;
   justify-content: ${({ isDesktop }) =>
-    isDesktop ? "center" : "space-between"};
+    isDesktop ? "flex-start" : "space-between"};
   height: 64px;
   box-shadow: var(--shadow);
   background-color: var(--bg);
@@ -29,6 +29,7 @@ const NavList = styled(motion.ul)`
 
 export const Navbar = ({ items }: TNavbar) => {
   const isDektop = useMediaQuery(desktopMediaQuery);
+  console.log(isDektop);
 
   const container = {
     initial: { opacity: 0 },

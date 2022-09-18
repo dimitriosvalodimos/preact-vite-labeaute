@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import create from "zustand";
 
 export const navbarHeight = 64;
 export const desktopMediaQuery = "(min-width: 500px)";
@@ -28,22 +27,6 @@ export const useMediaQuery = (query: string) => {
 
   return matches;
 };
-
-type ActiveNavbarItem = {
-  active: boolean[];
-  setActive: (index: number) => void;
-};
-
-export const useActiveNavbarItemStore = create<ActiveNavbarItem>((set) => ({
-  active: [true, false, false, false],
-  setActive: (index) =>
-    set((state) => ({
-      ...state,
-      active: Array(state.active.length)
-        .fill(false)
-        .map((_, idx) => index === idx),
-    })),
-}));
 
 export const handleScroll = (id: string) => {
   if (id === "/") {

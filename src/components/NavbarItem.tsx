@@ -1,12 +1,7 @@
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
 import styled from "styled-components";
-import {
-  desktopMediaQuery,
-  handleScroll,
-  useActiveNavbarItemStore,
-  useMediaQuery,
-} from "../utils";
+import { desktopMediaQuery, handleScroll, useMediaQuery } from "../utils";
 
 export type TNavItem = {
   icon: ReactNode;
@@ -16,9 +11,9 @@ export type TNavItem = {
   index?: number;
 };
 
-const StyledLink = styled.a<{ active: boolean }>`
+const StyledLink = styled.a`
   text-decoration: none;
-  color: ${({ active }) => (active ? "var(--lb-color)" : "black")};
+  color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -52,20 +47,9 @@ const Text = styled.p`
 
 export const NavItem = ({ text, link, icon, animation, index }: TNavItem) => {
   const isDesktop = useMediaQuery(desktopMediaQuery);
-  const { active, setActive } = useActiveNavbarItemStore((state) => ({
-    active: state.active[index!],
-    setActive: state.setActive,
-  }));
 
   return (
-    <StyledLink
-      active={active}
-      id={`link-${link}`}
-      onClick={() => {
-        setActive(index!);
-        handleScroll(link);
-      }}
-    >
+    <StyledLink id={`link-${link}`} onClick={() => handleScroll(link)}>
       <IconButton isDesktop={isDesktop} variants={animation}>
         {icon}
         {isDesktop && <Text>{text}</Text>}
