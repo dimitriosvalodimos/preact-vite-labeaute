@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
 import { ReactNode } from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { desktopMediaQuery, handleScroll, useMediaQuery } from "../utils";
 
 export type TNavItem = {

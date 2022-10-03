@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import img from "../assets/images/front_compressed_large.jpeg";
-import { desktopMediaQuery, useMediaQuery } from "../utils";
 import { Rule } from "./ui/Rule";
+import { desktopMediaQuery, useMediaQuery } from "../utils";
+import img from "../assets/images/front_compressed_large.jpeg";
 
 const Wrapper = styled.div<{ isDesktop: boolean }>`
   display: flex;

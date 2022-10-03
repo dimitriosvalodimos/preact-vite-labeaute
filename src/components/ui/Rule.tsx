@@ -1,7 +1,8 @@
 export const Rule = ({ marginY }: { marginY?: string }) => (
   <hr
     style={{
-      color: "rgba(0,0,0,0.2",
+      width: "60%",
+      color: "rgba(0, 0, 0, 0.1)",
       marginTop: marginY,
       marginBottom: marginY,
     }}
