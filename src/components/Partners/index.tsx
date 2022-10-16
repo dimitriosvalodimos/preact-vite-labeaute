@@ -3,7 +3,6 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Card } from "../ui/Card";
-import styled from "styled-components";
 import { companies, specialists } from "../../text";
 import { SectionTitle } from "../ui/SectionTitle";
 import { desktopMediaQuery, useMediaQuery } from "../../utils";

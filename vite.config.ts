@@ -10,6 +10,9 @@ export default defineConfig({
             "react/jsx-runtime": "preact/jsx-runtime",
         },
     },
+    esbuild: {
+        logOverride: { "this-is-undefined-in-esm": "silent" },
+    },
     plugins: [preact()],
     base: "/",
 });
