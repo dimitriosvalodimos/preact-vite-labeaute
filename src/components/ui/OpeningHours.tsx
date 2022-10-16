@@ -1,8 +1,6 @@
 export const OpeningHours = () => (
   <div>
-    <p style={{ textAlign: "center", padding: "1rem 0" }}>
-      Öffnungszeiten für die Behandlungen
-    </p>
+    <p style={{ textAlign: "center", padding: "1rem 0" }}>Öffnungszeiten</p>
     <div
       style={{
         display: "flex",
