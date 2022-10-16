@@ -1,0 +1,40 @@
+.styledLink {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.styledLink:hover {
+  color: var(--lb-color);
+  border-color: var(--bg-hover-active);
+}
+
+.styledLink:active {
+  background-color: var(--bg-active);
+}
+
+.iconButton {
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid transparent;
+  padding: 0.5rem 1rem;
+}
+
+.text {
+  margin: 0 var(--x-margin);
+}
+
+@media screen and (min-width: 500px) {
+  .iconButton {
+    height: 100%;
+    padding: 0.5rem;
+  }
+}

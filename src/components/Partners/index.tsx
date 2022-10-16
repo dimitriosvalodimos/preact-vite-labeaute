@@ -2,21 +2,12 @@ import { Lazy, Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/autoplay";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Card } from "./ui/Card";
+import { Card } from "../ui/Card";
 import styled from "styled-components";
-import { companies, specialists } from "../text";
-import { SectionTitle } from "./ui/SectionTitle";
-import { desktopMediaQuery, useMediaQuery } from "../utils";
-
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-`;
-
-const Resize = styled.div<{ isDesktop: boolean }>`
-  width: ${({ isDesktop }) => (isDesktop ? "60%" : "100%")};
-`;
+import { companies, specialists } from "../../text";
+import { SectionTitle } from "../ui/SectionTitle";
+import { desktopMediaQuery, useMediaQuery } from "../../utils";
+import s from "./Partners.module.css";
 
 export default function Partners() {
   const isDesktop = useMediaQuery(desktopMediaQuery);
@@ -36,7 +27,7 @@ export default function Partners() {
         ruleBelow
         ruleSpace="1rem"
       />
-      <Wrapper>
+      <div className={s.wrapper}>
         {specialists.map(({ name, occupation, treatments, link }) => (
           <Card
             key={`${name}-${occupation}`}
@@ -46,14 +37,14 @@ export default function Partners() {
             buttonLink={link}
           />
         ))}
-      </Wrapper>
+      </div>
       <SectionTitle
         description="Unternehmen"
         ruleAbove
         ruleBelow
         ruleSpace="1rem"
       />
-      <Resize isDesktop={isDesktop}>
+      <div className={s.resize}>
         <Swiper
           style={{ display: "block" }}
           lazy={{ checkInView: true }}
@@ -72,7 +63,7 @@ export default function Partners() {
             </SwiperSlide>
           ))}
         </Swiper>
-      </Resize>
+      </div>
     </section>
   );
 }

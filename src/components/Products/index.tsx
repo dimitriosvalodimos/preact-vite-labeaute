@@ -1,13 +1,12 @@
-import styled from "styled-components";
-import { Card } from "./ui/Card";
-import { SectionTitle } from "./ui/SectionTitle";
-import { massages, productExtras, products, specialTreatment } from "../text";
-
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-`;
+import { Card } from "../ui/Card";
+import { SectionTitle } from "../ui/SectionTitle";
+import {
+  massages,
+  productExtras,
+  products,
+  specialTreatment,
+} from "../../text";
+import s from "./Products.module.css";
 
 export default function Products() {
   return (
@@ -23,7 +22,7 @@ export default function Products() {
         ruleBelow
         ruleSpace="1rem"
       />
-      <Wrapper>
+      <div className={s.wrapper}>
         {products.map(({ title, description, priceList }, i) => (
           <Card
             key={`${title}-${i}`}
@@ -33,14 +32,14 @@ export default function Products() {
           />
         ))}
         <Card title="Extras" table={productExtras} />
-      </Wrapper>
+      </div>
       <SectionTitle
         description="Massagen"
         ruleAbove
         ruleBelow
         ruleSpace="1rem"
       />
-      <Wrapper>
+      <div className={s.wrapper}>
         {massages.map(({ title, description, priceList }, i) => (
           <Card
             key={`${title}-${i}`}
@@ -49,14 +48,14 @@ export default function Products() {
             priceList={priceList}
           />
         ))}
-      </Wrapper>
+      </div>
       <SectionTitle
         description="Spezialbehandlungen"
         ruleAbove
         ruleBelow
         ruleSpace="1rem"
       />
-      <Wrapper>
+      <div className={s.wrapper}>
         {specialTreatment.map(({ title, description, priceList }, i) => (
           <Card
             key={`${title}-${i}`}
@@ -65,7 +64,7 @@ export default function Products() {
             priceList={priceList}
           />
         ))}
-      </Wrapper>
+      </div>
     </section>
   );
 }

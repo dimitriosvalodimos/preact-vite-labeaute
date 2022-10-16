@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "preact/hooks";
 
 export const navbarHeight = 64;
 export const desktopMediaQuery = "(min-width: 500px)";

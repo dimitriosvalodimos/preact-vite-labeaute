@@ -1,0 +1,5 @@
+.wrapper {
+  color: var(--lb-color);
+  font-size: x-large;
+  font-family: var(--lb-font);
+}

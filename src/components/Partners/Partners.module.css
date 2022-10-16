@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.resize {
+  width: 100%;
+}
+
+@media screen and (min-width: 500px) {
+  .resize {
+    width: 60%;
+  }
+}

@@ -1,8 +1,15 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import { preact } from "@preact/preset-vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  resolve: {
+    alias: {
+      react: "preact/compat",
+      "react-dom": "preact/compat",
+      "react/jsx-runtime": "preact/jsx-runtime",
+    },
+  },
+  plugins: [preact()],
   base: "/",
 });
