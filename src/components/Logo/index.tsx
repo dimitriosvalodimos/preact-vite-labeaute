@@ -5,6 +5,12 @@ export const Logo = () => {
     const isDesktop = useMediaQuery(desktopMediaQuery);
 
     return (
-        <>{isDesktop ? <p className={s.wrapper}>LA BEAUTÉ</p> : <p>LB</p>}</>
+        <>
+            {isDesktop ? (
+                <p className={s.wrapper}>LA BEAUTÉ</p>
+            ) : (
+                <p className={s.wrapper}>LB</p>
+            )}
+        </>
     );
 };
