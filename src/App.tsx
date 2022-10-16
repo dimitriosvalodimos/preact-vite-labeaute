@@ -9,18 +9,18 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 export default function App() {
-  const isDesktop = useMediaQuery(desktopMediaQuery);
+    const isDesktop = useMediaQuery(desktopMediaQuery);
 
-  return (
-    <IconContext.Provider value={{ size: isDesktop ? "16" : "24" }}>
-      <div className="App">
-        <Navbar items={navbarItems} />
-        <Hero />
-        <Products />
-        <Partners />
-        <Contact />
-        <Footer />
-      </div>
-    </IconContext.Provider>
-  );
+    return (
+        <IconContext.Provider value={{ size: isDesktop ? "16" : "24" }}>
+            <div className="App">
+                <Navbar items={navbarItems} />
+                <Hero />
+                <Products />
+                <Partners />
+                <Contact />
+                <Footer />
+            </div>
+        </IconContext.Provider>
+    );
 }

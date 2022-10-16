@@ -1,41 +1,41 @@
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  margin: 0.5rem;
-  width: "100%";
-  text-align: center;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--bg-hover);
-  border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin: 0.5rem;
+    width: "100%";
+    text-align: center;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--bg-hover);
+    border-radius: var(--radius);
 }
 
 .cardTitle {
-  margin: 0;
-  padding: 0.5rem 0;
+    margin: 0;
+    padding: 0.5rem 0;
 }
 
 .cardDescription {
-  width: 80%;
-  margin-top: 0;
-  margin-bottom: 0;
+    width: 80%;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .buttonLink {
-  margin-top: 1rem;
-  padding: 1rem;
-  border-radius: var(--radius);
-  border: 1px solid var(--bg-active);
-  text-decoration: none;
-  color: black;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--bg-active);
+    text-decoration: none;
+    color: black;
 }
 
 .buttonLink:hover {
-  background-color: var(--bg-hover);
+    background-color: var(--bg-hover);
 }
 
 @media screen and (min-width: 500px) {
-  .wrapper {
-    width: 350px;
-  }
+    .wrapper {
+        width: 350px;
+    }
 }

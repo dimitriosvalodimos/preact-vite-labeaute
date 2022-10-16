@@ -6,12 +6,12 @@ import App from "./App";
 import "./index.css";
 
 render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="/impressum" element={<Impressum />} />
-      <Route path="/datenschutz" element={<Datenschutz />} />
-    </Routes>
-  </BrowserRouter>,
-  document.body
+    <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="/impressum" element={<Impressum />} />
+            <Route path="/datenschutz" element={<Datenschutz />} />
+        </Routes>
+    </BrowserRouter>,
+    document.body,
 );

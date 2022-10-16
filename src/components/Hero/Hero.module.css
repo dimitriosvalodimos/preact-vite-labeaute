@@ -1,40 +1,40 @@
 .wrapper {
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: column;
-  padding-top: 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    padding-top: 0;
 }
 
 .image {
-  width: 100%;
+    width: 100%;
 }
 
 .text {
-  padding: 0.5rem;
-  text-align: center;
-  background-color: white;
-  border-radius: var(--radius);
-  width: 80%;
-  line-height: 1.6;
+    padding: 0.5rem;
+    text-align: center;
+    background-color: white;
+    border-radius: var(--radius);
+    width: 80%;
+    line-height: 1.6;
 }
 
 .company {
-  font-family: var(--lb-font);
-  font-size: xx-large;
-  color: var(--lb-color);
+    font-family: var(--lb-font);
+    font-size: xx-large;
+    color: var(--lb-color);
 }
 
 @media screen and (min-width: 500px) {
-  .wrapper {
-    flex-direction: row;
-    padding-top: 4rem;
-  }
+    .wrapper {
+        flex-direction: row;
+        padding-top: 4rem;
+    }
 
-  .image {
-    width: 40%;
-  }
+    .image {
+        width: 40%;
+    }
 
-  .text {
-    width: 40%;
-  }
+    .text {
+        width: 40%;
+    }
 }
