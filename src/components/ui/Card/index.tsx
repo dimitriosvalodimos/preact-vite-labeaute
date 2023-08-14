@@ -2,6 +2,7 @@ import { Flex } from "../Flex";
 import { Table } from "../Table";
 import { PriceList } from "../PriceList";
 import s from "./Card.module.css";
+import { TPrice } from "../Price";
 
 export const Card = ({
     title,
@@ -14,7 +15,7 @@ export const Card = ({
     title?: string;
     short?: string;
     description?: string;
-    priceList?: { time: number; price: number }[];
+    priceList?: TPrice[];
     table?: any[];
     buttonLink?: string;
 }) => {

@@ -4,6 +4,13 @@ import {
     RiShoppingBag3Line,
     RiStoreLine,
 } from "react-icons/ri";
+import { TPrice } from "./components/ui/Price";
+
+export type TProductInfo = {
+    title: string;
+    description: string;
+    priceList: TPrice[];
+};
 
 export const navbarItems = [
     { icon: <RiStoreLine />, link: "/", text: "Home" },
@@ -24,7 +31,7 @@ export const navbarItems = [
     },
 ];
 
-export const products = [
+export const products: TProductInfo[] = [
     {
         title: "Sisley - Phyto Aromatique",
         description:
@@ -59,9 +66,8 @@ export const products = [
         priceList: [{ time: 60, price: 89 }],
     },
     {
-        title: "Sensitiv / Couperose",
-        description:
-            "Beruhigende Entspannung in einer empfindlichen Phase Ihrer Haut",
+        title: "Anti Stress",
+        description: "Beruhigung der gestressten und sensiblen Haut",
         priceList: [{ time: 60, price: 89 }],
     },
     {
@@ -117,7 +123,7 @@ export const productExtras = [
     { text: "Augenmaske", price: 10 },
     { text: "Lackieren", price: 15 },
 ];
-export const massages = [
+export const massages: TProductInfo[] = [
     {
         title: "Ganzkörpermassage",
         description: "",
@@ -134,18 +140,54 @@ export const massages = [
         priceList: [{ time: 50, price: 129 }],
     },
 ];
-export const specialTreatment = [
+export const specialTreatment: TProductInfo[] = [
     {
-        title: "Mikrodermabrasion - für ein perfektes Hautbild",
+        title: "Micro Needling",
         description:
-            "Unvergleichliche Tiefenbehandlung zur Anregung aller Hautfunktionen, umfangreiche und gezielte Hautverbesserung auf 3 Ebenen, mit Langzeitwirkung. Inklusiv Bio Cellulose-Maske",
-        priceList: [{ time: 70, price: 139 }],
+            "Eine Revolution unter den Anti-Aging-Methoden, erzielt effektive und sofort sichtbare Ergebnisse. Erfolgreich als Kur auch bei Pigmentflecken und Couperose. Innovative Behandlung ohne Operation.",
+        priceList: [
+            { time: 70, price: 199 },
+            {
+                time: 0,
+                price: 499,
+                text: "Kur mit 3 Behandlungen innerhalb 4 Wochen",
+            },
+        ],
     },
     {
-        title: "Pro Lift - Mandelic Glow",
+        title: "Zertifizierter Ultraschall",
         description:
-            "Außergewöhnlich strahlende Haut durch Mandelsäure. Sichtbare Ergebnisse ohne operativen Eingriff, faszinierend sind Glätte und Ebenmäßigkeit der Haut mit feinen, gefestigten Hautpartien. Inklusiv Lyocell-Hyaluron-Maske",
+            "Hochfrequenter Ultraschall wirkt in der Tiefe der Haut effektiv gegen Falten, Tränensäcke, Couperose, Schwellungen und Elastizitätsverlust.",
+        priceList: [
+            { time: 70, price: 139, text: "Inklusiv Bio Cellulose-Maske" },
+            { time: 70, price: 179, text: "Inklusiv Hals & Dekolleté" },
+        ],
+    },
+    {
+        title: "Mikrodermabrasion",
+        description:
+            "Tiefenbehandlung mit Langzeitwirkung sowie umfangreicher und gezielter Hautverbesserung auf 3 Ebenen.",
+        priceList: [
+            { time: 70, price: 139, text: "Inklusiv Bio Cellulose-Maske" },
+            { time: 70, price: 179, text: "inklusiv Hals & Dekolleté" },
+        ],
+    },
+    {
+        title: "Mikrodermabrasion und Ultraschall",
+        description: "",
+        priceList: [{ time: 90, price: 199 }],
+    },
+    {
+        title: "Pro Lift Mandelic Glow",
+        description:
+            "Strahlende Haut durch hochprozentige Mandelsäure. Faszinierende Glätte und ebenmäßige, gefestigte Haut",
         priceList: [{ time: 90, price: 129 }],
+    },
+    {
+        title: "Couperose / Rosazea Behandlung",
+        description:
+            "Kosmetisches Gefäßtraining für einen tief entspannten Teint. Stabilisierung und Entstauung der Gefäße bei Hautreizungen und Schwellungen.",
+        priceList: [{ time: 70, price: 119 }],
     },
 ];
 export const specialists = [

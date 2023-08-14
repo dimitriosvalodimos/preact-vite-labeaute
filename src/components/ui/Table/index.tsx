@@ -12,7 +12,7 @@ export const TableItem = ({ item }: { item: TableEntry }) => {
             <p style={{ width: "40%", textAlign: "left" }}>{item.text}</p>
             <p style={{ width: "40%", textAlign: "right" }}>
                 {item.starting && <>ab </>}
-                {item.price} Euro
+                {item.price} €
             </p>
         </div>
     );
