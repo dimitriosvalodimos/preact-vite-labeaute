@@ -18,6 +18,30 @@ const Hero = () => {
                     Behandlungen und Produkte auf die Bedürfnisse Ihrer Haut
                     abgestimmt.
                 </p>
+                <div
+                    style={{
+                        textAlign: "center",
+                        borderRadius: "var(--radius)",
+                        padding: "1rem",
+                        marginTop: "1rem",
+                        marginBottom: "1rem",
+                        fontSize: "x-large",
+                    }}
+                >
+                    <p>
+                        Freuen Sie sich auf{" "}
+                        <span
+                            style={{
+                                color: "rgb(255,0,145)",
+                                fontFamily: "var(--lb-font)",
+                                fontWeight: "bold",
+                            }}
+                        >
+                            LA BOUTIQUE
+                        </span>{" "}
+                        ab dem 9. November 2023 gleich nebenan.
+                    </p>
+                </div>
             </div>
         </div>
     );
