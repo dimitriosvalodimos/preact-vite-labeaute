@@ -35,7 +35,7 @@ export const products: TProductInfo[] = [
     {
         title: "Sisley - Phyto Aromatique",
         description:
-            "Luxus Pur - Regeneration in höchster Qualität, in Verbindung mit einer Edelstein-Massage entsteht ein außergewöhnliches Erlebnis",
+            "Luxus Pur – Regeneration in höchster Qualität, in Verbindung mit einem luxuriösen Gua-Sha-Massage-Instrument entsteht ein außergewöhnliches Erlebnis",
         priceList: [
             { time: 90, price: 169 },
             { time: 60, price: 129 },
